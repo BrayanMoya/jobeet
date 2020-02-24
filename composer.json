@@ -1,0 +1,17 @@
+{
+    "name": "bmoya/jobeet",
+    "description": "Proyecto practica de symfony",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "bmoya",
+            "email": "bmoya@tiqal.com"
+        }
+    ],
+    "require": {
+        "lexpress/symfony1": "1.5.*",
+        "lexpress/doctrine1": "^1.3",
+        "psr/log": "^1.1"
+    }
+}
