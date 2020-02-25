@@ -1,8 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
 <head>
-    <title>Jobeet - Tu Mejor Bolsa De Trabajo</title>
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <!--titulo que aparece en la pestaña del navegador, se puede personalizar dependiendo de lo que se este realizando en cada ventana, como esta en showSucces de Job-->
+    <title>
+        <?php if (!include_slot('title')): ?>
+            Jobeet - Tu Mejor Bolsa De Trabajo
+        <?php endif; ?>
+    </title>
+
+    <link rel="icon" href="https://img.icons8.com/color/48/000000/symfony.png">/>
     <?php include_javascripts() ?>
     <?php include_stylesheets() ?>
 </head>
@@ -16,14 +22,14 @@
 
             <div id="sub_header">
                 <div class="post">
-                    <h2>Ask for people</h2>
+                    <h2>Pregunta Por Personas</h2>
                     <div>
-                        <a href="<?php echo url_for('job/index') ?>">Post a Job</a>
+                        <a href="<?php echo url_for('job/index') ?>">Publica un Trabajo</a>
                     </div>
                 </div>
 
                 <div class="search">
-                    <h2>Ask for a job</h2>
+                    <h2>Pregunta por un Trabajo</h2>
                     <form action="" method="get">
                         <input type="text" name="keywords"
                                id="search_keywords" />
