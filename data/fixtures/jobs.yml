@@ -1,0 +1,47 @@
+JobeetJob:
+  job_sensio_labs:
+    JobeetCategory:  programming
+    type:         Tiempo Completo
+    company:      Sensio Labs
+    logo:         sensio-labs.gif
+    url:          http://www.sensiolabs.com/
+    position:     Desarrollo Web
+    location:     Paris, Francia
+    description:  |
+      Estas listo para desarrollar sitios web con symfony y deseas trabajar con tecnologias
+      open-Source (codigo abierto). Debes tener minimo 3 años de experiencia
+      en desarrollo web con PHP o Java y si quieres participar en desarrollo de sitios web 2.0
+      usando el mejor framework disponible actualmente.
+    how_to_apply: |
+      Envia tu perfil a bmoya [at] sensio.com
+    is_public:    true
+    is_activated: true
+    token:        job_sensio_labs
+    email:        job@example.com
+    expires_at:   '2020-10-10'
+
+  job_extreme_sensio:
+    JobeetCategory:  design
+    type:         Medio Tiempo
+    company:      Extreme Sensio
+    logo:         extreme-sensio.gif
+    url:          http://www.extreme-sensio.com/
+    position:     Diseñador Web
+    location:     Paris, Francia
+    description:  |
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+      enim ad minim veniam, quis nostrud exercitation ullamco laboris
+      nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+      in reprehenderit in.
+
+      Voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa
+      qui officia deserunt mollit anim id est laborum.
+    how_to_apply: |
+      Envia tu perfil a bmoya [at] sensio.com
+    is_public:    true
+    is_activated: true
+    token:        job_extreme_sensio
+    email:        job@example.com
+    expires_at:   '2020-10-10'
