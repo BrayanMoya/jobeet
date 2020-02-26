@@ -15,6 +15,13 @@ class jobActions extends sfActions
     $this->jobeet_jobs = Doctrine_Core::getTable('JobeetJob')
       ->createQuery('a')
       ->execute();
+
+    //Mostrar registros que esten activos (vigentes en fecha, que no pasen de 30 dias de creacion)
+      $q = Doctrine_Query::create()
+          ->from('JobeetJob j')
+          ->where('j.expires_at > ?', date('Y-m-d h:i:s', time()));
+
+      $this->jobeet_jobs = $q->execute();
   }
 
   public function executeFooBar(sfWebRequest $request)

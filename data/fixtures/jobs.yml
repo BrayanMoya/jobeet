@@ -45,3 +45,16 @@ JobeetJob:
     token:        job_extreme_sensio
     email:        job@example.com
     expires_at:   '2020-10-10'
+
+  expired_job:
+    JobeetCategory: manager
+    company:        Sensio Labs
+    position:       Lider De Proyectos
+    location:       Paris - Francia
+    description:    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    how_to_apply:   Envia tu perfil a bmoya [at] sensio.com
+    is_public:      true
+    is_activated:   true
+    created_at:     '2019-12-01 00:00:00'
+    token:          job_expired
+    email:          job@example.com
