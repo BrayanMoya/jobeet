@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/jobeet.iml" filepath="$PROJECT_DIR$/.idea/jobeet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../symfony-1.4-jobeet-master/.idea/symfony-1.4-jobeet-master.iml" filepath="$PROJECT_DIR$/../../symfony-1.4-jobeet-master/.idea/symfony-1.4-jobeet-master.iml" />
     </modules>
   </component>
 </project>

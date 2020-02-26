@@ -12,16 +12,9 @@ class jobActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->jobeet_jobs = Doctrine_Core::getTable('JobeetJob')
-      ->createQuery('a')
-      ->execute();
+    $this->jobeet_jobs = Doctrine_Core::getTable('JobeetJob')->getActiveJobs();
+    $this->categories = Doctrine_Core::getTable('JobeetCategory')->getWithJobs();
 
-    //Mostrar registros que esten activos (vigentes en fecha, que no pasen de 30 dias de creacion)
-      $q = Doctrine_Query::create()
-          ->from('JobeetJob j')
-          ->where('j.expires_at > ?', date('Y-m-d h:i:s', time()));
-
-      $this->jobeet_jobs = $q->execute();
   }
 
   public function executeFooBar(sfWebRequest $request)
@@ -36,8 +29,8 @@ class jobActions extends sfActions
 
 //    $this->jobeet_job = Doctrine_Core::getTable('JobeetJob')->find(array($request->getParameter('id')));
 //    $this->forward404Unless($this->jobeet_job);
-      $this->job = Doctrine_Core::getTable('JobeetJob')->find(array($request->getParameter('id')));
-      $this->forward404Unless($this->job);
+//    $this->job = Doctrine_Core::getTable('JobeetJob')->find(array($request->getParameter('id')));
+      $this->job = $this->getRoute()->getObject();
   }
 
   public function executeNew(sfWebRequest $request)
