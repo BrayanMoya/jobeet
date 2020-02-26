@@ -27,4 +27,5 @@ class JobeetCategoryTable extends Doctrine_Table
         return $q->execute();
     }
 
+
 }

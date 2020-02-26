@@ -4,6 +4,6 @@ JobeetCategory:
   programming:
     name: Programacion
   manager:
-    name: Gerente
+    name: Gerencia
   administrator:
-    name: Administrador
+    name: Administracion
