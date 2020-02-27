@@ -42,6 +42,8 @@ class JobeetJobForm extends BaseJobeetJobForm
 
         $this->widgetSchema->setHelp('is_public', 'El trabajo puede ser visto por todo visitante o solo afiliados a la pagina.');
 
+        $this->widgetSchema->setNameFormat('job[%s]');
+
 
         //VALIDADORES
 

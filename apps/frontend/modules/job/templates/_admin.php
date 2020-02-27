@@ -15,7 +15,7 @@
                 <?php endif ?>
 
                 <?php if ($job->expiresSoon()): ?>
-                    - <a href="">Extender</a> por otros <?php echo sfConfig::get('app_active_days') ?> dias
+                    - <?php echo link_to('Extender', 'job_extend', $job, array('method' => 'put')) ?> por otros <?php echo sfConfig::get('app_active_days') ?> dias
                 <?php endif ?>
             </li>
         <?php else: ?>

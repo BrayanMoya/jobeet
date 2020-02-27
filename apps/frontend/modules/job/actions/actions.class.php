@@ -52,8 +52,10 @@ class jobActions extends sfActions
 
     public function executeEdit(sfWebRequest $request)
     {
+        $job = $this->getRoute()->getObject();
+        $this->forward404If(!$job->getIsActivated());
 
-        $this->form = new JobeetJobForm($this->getRoute()->getObject());
+        $this->form = new JobeetJobForm($job);
     }
 
     public function executeUpdate(sfWebRequest $request)
@@ -83,6 +85,18 @@ class jobActions extends sfActions
         $job->publish();
 
         $this->getUser()->setFlash('notice', sprintf('Tu trabajo está ahora en linea por %s dias.', sfConfig::get('app_active_days')));
+
+        $this->redirect($this->generateUrl('job_show_user', $job));
+    }
+
+    public function executeExtend(sfWebRequest $request)
+    {
+        $request->checkCSRFProtection();
+
+        $job = $this->getRoute()->getObject();
+        $this->forward404Unless($job->extend());
+
+        $this->getUser()->setFlash('notice', sprintf('La validación de tu trabajo ha sido extendida hasta %s.', $job->getDateTimeObject('expires_at')->format('m/d/Y')));
 
         $this->redirect($this->generateUrl('job_show_user', $job));
     }
