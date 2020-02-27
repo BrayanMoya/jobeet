@@ -24,7 +24,7 @@
                 <div class="post">
                     <h2>Pregunta Por Personas</h2>
                     <div>
-                        <a href="<?php echo url_for('job/index') ?>">Publica un Trabajo</a>
+                        <a href="<?php echo url_for('@job_new') ?>">Publica un Trabajo</a>
                     </div>
                 </div>
 
@@ -33,7 +33,7 @@
                     <form action="" method="get">
                         <input type="text" name="keywords"
                                id="search_keywords" />
-                        <input type="submit" value="search" />
+                        <input type="submit" value="Buscar" />
                         <div class="help">
                             Ingresa Algunas Palabras Clave (ciudad, pais, posicion, ...)
                         </div>
@@ -70,10 +70,10 @@
             </a>
           </span>
             <ul>
-                <li><a href="">About Jobeet</a></li>
+                <li><a href="">Acerca de Jobeet</a></li>
                 <li class="feed"><a href="">Full feed</a></li>
                 <li><a href="">Jobeet API</a></li>
-                <li class="last"><a href="">Affiliates</a></li>
+                <li class="last"><a href="">Afiliados</a></li>
             </ul>
         </div>
     </div>

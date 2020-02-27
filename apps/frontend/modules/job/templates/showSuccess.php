@@ -2,11 +2,12 @@
 
 <?php use_helper('Text') ?>
 
+<?php if ($sf_request->getParameter('token') == $job->getToken()): ?>
+    <?php include_partial('job/admin', array('job' => $job)) ?>
+<?php endif ?>
+
 <!--titulo que aparece en la pestaña del navegador, personalizable-->
-<?php slot(
-    'title',
-    sprintf('%s Esta buscando un %s', $job->getCompany(), $job->getPosition()))   //INTERESANTE
-?>
+<?php slot('title',sprintf('%s Esta buscando un %s', $job->getCompany(), $job->getPosition()))  //INTERESANTE  ?>
 <!--
 <?php echo get_slot('title') ?>  HELPER get_ sirve para obtener lo que se este enviando en los helpers
 -->
@@ -40,7 +41,7 @@
     </div>
 
     <div style="padding: 20px 0" id="job">
-        <a href="<?php echo url_for('job/edit?id='.$job->getId()) ?>" style="text-decoration: none">
+        <a href="<?php echo url_for('job_edit', $job) ?>" style="text-decoration: none">
             Editar
         </a>
         <br>

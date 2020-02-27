@@ -40,6 +40,8 @@ class JobeetJobTable extends Doctrine_Table
         $q->andWhere($alias . '.expires_at > ?', date('Y-m-d h:i:s', time()))
             ->addOrderBy($alias . '.expires_at DESC');
 
+        $q->andWhere($alias . '.is_activated = ?', 1);
+
         return $q;
     }
 
@@ -50,4 +52,16 @@ class JobeetJobTable extends Doctrine_Table
 
         return $this->addActiveJobsQuery($q)->fetchOne();
     }
+
+    static public $types = array(
+        'Tiempo Completo' => 'Tiempo Completo',
+        'Medio Tiempo' => 'Medio Tiempo',
+        'Por Contrato' => 'Por Contrato',
+    );
+
+    public function getTypes()
+    {
+        return self::$types;
+    }
+
 }

@@ -3,7 +3,11 @@
 
 job:
   class:   sfDoctrineRouteCollection
-  options: { model: JobeetJob }
+  options:
+    model:          JobeetJob
+    column:         token
+    object_actions: { publish: put }
+  requirements: { token: \w+ }
 
 #category:
 #  class:   sfDoctrineRouteCollection
