@@ -45,7 +45,7 @@
             Editar
         </a>
         <br>
-        <a href="<?php echo url_for('job/index') ?>"  style="text-decoration: none" >Listar Trabajos</a>
+        <a href="<?php echo url_for('job_show_user', $job) ?>"  style="text-decoration: none" >Listar Trabajos</a>
     </div>
 </div>
 
