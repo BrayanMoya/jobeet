@@ -239,5 +239,4 @@ click('Web Developer', array(), array('position' => 1))->
 get('/')->
 with('user')->begin()->
 isAttribute('job_history', array($browser->getMostRecentProgrammingJob()->getId()))->
-end()
-;
+end();

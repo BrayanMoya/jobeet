@@ -41,4 +41,8 @@ class JobeetCategory extends BaseJobeetCategory
         return Jobeet::slugify($this->getName());
     }
 
+    public function getLatestPost()
+    {
+        return $this->getActiveJobs(1)->getFirst();
+    }
 }

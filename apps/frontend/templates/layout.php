@@ -11,6 +11,10 @@
     <link rel="icon" href="https://img.icons8.com/color/48/000000/symfony.png">
     <?php include_javascripts() ?>
     <?php include_stylesheets() ?>
+
+    <link rel="alternate" type="application/atom+xml" title="Latest Jobs"
+          href="<?php echo url_for('job', array('sf_format' => 'atom'), true) ?>" />
+
 </head>
 <body>
 <div id="container">
@@ -83,9 +87,13 @@
           </span>
             <ul>
                 <li><a href="">Acerca de Jobeet</a></li>
-                <li class="feed"><a href="">Full feed</a></li>
+                <li class="feed">
+                    <a href="<?php echo url_for('job', array('sf_format' => 'atom')) ?>">Full feed</a>
+                </li>
                 <li><a href="">Jobeet API</a></li>
-                <li class="last"><a href="">Afiliados</a></li>
+                <li class="last">
+                    <a href="<?php echo url_for('affiliate_new') ?>">Conviertete en Afiliado</a>
+                </li>
             </ul>
         </div>
     </div>
