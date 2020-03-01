@@ -9,7 +9,7 @@ $browser->loadData();
 //$browser->info('1 - The homepage')->
 //get('/')->
 //with('request')->begin()->
-//isParameter('module', 'job')->
+//isParameter('module', 'sfJobeetJob')->
 //isParameter('action', 'index')->
 //end()->
 //with('response')->begin()->
@@ -22,14 +22,14 @@ $browser->loadData();
 //
 //$browser->info('1 - The homepage')->
 //get('/')->
-//info(sprintf('  1.2 - Only %s jobs are listed for a category', $max))->
+//info(sprintf('  1.2 - Only %s jobs are listed for a sfJobeetCategory', $max))->
 //with('response')->
 //checkElement('.category_programming tr', $max);
 //
 ////Una categoría tiene un enlace a la página de categoría sólo si tiene muchos puestos de trabajo
 //$browser->info('1 - The homepage')->
 //get('/')->
-//info('  1.3 - A category has a link to the category page only if too many jobs')->
+//info('  1.3 - A sfJobeetCategory has a link to the sfJobeetCategory page only if too many jobs')->
 //with('response')->begin()->
 //checkElement('.category_design .more_jobs', false)->
 //checkElement('.category_programming .more_jobs')->
@@ -45,7 +45,7 @@ $browser->loadData();
 //    ->andWhere('j.expires_at > ?', date('Y-m-d', time()))
 //    ->orderBy('j.created_at DESC');
 //
-//$job = $q->fetchOne();
+//$sfJobeetJob = $q->fetchOne();
 
 
 //$browser->info('1 - The homepage')->
@@ -58,43 +58,43 @@ $browser->loadData();
 
 
 //Cada puesto de trabajo en la página principal es cliqueable
-//$job = $browser->getMostRecentProgrammingJob();
+//$sfJobeetJob = $browser->getMostRecentProgrammingJob();
 //
 //
-//$browser->info('2 - The job page')->
+//$browser->info('2 - The sfJobeetJob page')->
 //get('/')->
 //
-//info('  2.1 - Each job on the homepage is clickable and give detailed information')->
+//info('  2.1 - Each sfJobeetJob on the homepage is clickable and give detailed information')->
 //click('Web Developer', array(), array('position' => 1))->
 //with('request')->begin()->
-//isParameter('module', 'job')->
+//isParameter('module', 'sfJobeetJob')->
 //isParameter('action', 'show')->
-//isParameter('company_slug', $job->getCompanySlug())->
-//isParameter('location_slug', $job->getLocationSlug())->
-//isParameter('position_slug', $job->getPositionSlug())->
-//isParameter('id', $job->getId())->
+//isParameter('company_slug', $sfJobeetJob->getCompanySlug())->
+//isParameter('location_slug', $sfJobeetJob->getLocationSlug())->
+//isParameter('position_slug', $sfJobeetJob->getPositionSlug())->
+//isParameter('id', $sfJobeetJob->getId())->
 //end();
 //
 //
-//info('  2.2 - A non-existent job forwards the user to a 404')->
-//get('/job/foo-inc/milano-italy/0/painter')->
+//info('  2.2 - A non-existent sfJobeetJob forwards the user to a 404')->
+//get('/sfJobeetJob/foo-inc/milano-italy/0/painter')->
 //with('response')->isStatusCode(404)->
 //
-//info('  2.3 - An expired job page forwards the user to a 404')->
-//get(sprintf('/job/sensio-labs/paris-france/%d/web-developer', $browser->getExpiredJob()->getId()))->
+//info('  2.3 - An expired sfJobeetJob page forwards the user to a 404')->
+//get(sprintf('/sfJobeetJob/sensio-labs/paris-france/%d/web-developer', $browser->getExpiredJob()->getId()))->
 //with('response')->isStatusCode(404);
 
 
 //$browser->info('3 - Post a Job page')->
 //info('  3.1 - Submit a Job')->
 //
-//get('/job/new')->
+//get('/sfJobeetJob/new')->
 //
 //with('request')->begin()->
-//isParameter('module', 'job')->
+//isParameter('module', 'sfJobeetJob')->
 //isParameter('action', 'new')->
 //end()->
-//click('Preview your job', array('job' => array(
+//click('Preview your sfJobeetJob', array('sfJobeetJob' => array(
 //    'company' => 'Sensio Labs',
 //    'url' => 'http://www.sensio.com/',
 //    'logo' => sfConfig::get('sf_upload_dir') . '/jobs/sensio-labs.gif',
@@ -102,12 +102,12 @@ $browser->loadData();
 //    'location' => 'Atlanta, USA',
 //    'description' => 'You will work with symfony to develop websites for our customers.',
 //    'how_to_apply' => 'Send me an email',
-//    'email' => 'for.a.job@example.com',
+//    'email' => 'for.a.sfJobeetJob@example.com',
 //    'is_public' => false,
 //)))->
 //
 //with('request')->begin()->
-//isParameter('module', 'job')->
+//isParameter('module', 'sfJobeetJob')->
 //isParameter('action', 'create')->
 //end()->
 //
@@ -115,7 +115,7 @@ $browser->loadData();
 //followRedirect()->
 //
 //with('request')->begin()->
-//isParameter('module', 'job')->
+//isParameter('module', 'sfJobeetJob')->
 //isParameter('action', 'show')->
 //end();
 //
@@ -135,8 +135,8 @@ $browser->setTester('doctrine', 'sfTesterDoctrine');
 //$browser->
 //info('  3.2 - Submit a Job with invalid values')->
 //
-//get('/job/new')->
-//click('Preview your job', array('job' => array(
+//get('/sfJobeetJob/new')->
+//click('Preview your sfJobeetJob', array('sfJobeetJob' => array(
 //    'company' => 'Sensio Labs',
 //    'position' => 'Developer',
 //    'location' => 'Atlanta, USA',
@@ -151,7 +151,7 @@ $browser->setTester('doctrine', 'sfTesterDoctrine');
 //end();
 //
 //
-//$browser->info('  3.3 - On the preview page, you can publish the job')->
+//$browser->info('  3.3 - On the preview page, you can publish the sfJobeetJob')->
 //createJob(array('position' => 'FOO1'))->
 //click('Publicar', array(), array('method' => 'put', '_with_csrf' => true))->
 //
@@ -163,7 +163,7 @@ $browser->setTester('doctrine', 'sfTesterDoctrine');
 //end();
 //
 //
-//$browser->info('  3.4 - On the preview page, you can delete the job')->
+//$browser->info('  3.4 - On the preview page, you can delete the sfJobeetJob')->
 //createJob(array('position' => 'FOO2'))->
 //click('Eliminar', array(), array('method' => 'delete', '_with_csrf' => true))->
 //
@@ -174,43 +174,43 @@ $browser->setTester('doctrine', 'sfTesterDoctrine');
 //end();
 //
 //
-//$browser->info('  3.5 - When a job is published, it cannot be edited anymore')->
+//$browser->info('  3.5 - When a sfJobeetJob is published, it cannot be edited anymore')->
 //createJob(array('position' => 'FOO3'), true)->
-//get(sprintf('/job/%s/edit', $browser->getJobByPosition('FOO3')->getToken()))->
+//get(sprintf('/sfJobeetJob/%s/edit', $browser->getJobByPosition('FOO3')->getToken()))->
 //
 //with('response')->begin()->
 //isStatusCode(404)->
 //end();
 //
 //
-//$browser->info('  3.6 - A job validity cannot be extended before the job expires soon')->
+//$browser->info('  3.6 - A sfJobeetJob validity cannot be extended before the sfJobeetJob expires soon')->
 //createJob(array('position' => 'FOO4'), true)->
-//call(sprintf('/job/%s/extend', $browser->getJobByPosition('FOO4')->getToken()), 'put', array('_with_csrf' => true))->
+//call(sprintf('/sfJobeetJob/%s/extend', $browser->getJobByPosition('FOO4')->getToken()), 'put', array('_with_csrf' => true))->
 //with('response')->begin()->
 //isStatusCode(404)->
 //end();
 //
-//$browser->info('  3.7 - A job validity can be extended when the job expires soon')->
+//$browser->info('  3.7 - A sfJobeetJob validity can be extended when the sfJobeetJob expires soon')->
 //createJob(array('position' => 'FOO5'), true);
 //
-//$job = $browser->getJobByPosition('FOO5');
-//$job->setExpiresAt(date('Y-m-d'));
-//$job->save();
+//$sfJobeetJob = $browser->getJobByPosition('FOO5');
+//$sfJobeetJob->setExpiresAt(date('Y-m-d'));
+//$sfJobeetJob->save();
 //
 //$browser->
-//call(sprintf('/job/%s/extend', $job->getToken()), 'put', array('_with_csrf' => true))->
+//call(sprintf('/sfJobeetJob/%s/extend', $sfJobeetJob->getToken()), 'put', array('_with_csrf' => true))->
 //with('response')->isRedirected();
 //
-//$job->refresh();
+//$sfJobeetJob->refresh();
 //$browser->test()->is(
-//    $job->getDateTimeObject('expires_at')->format('y/m/d'),
+//    $sfJobeetJob->getDateTimeObject('expires_at')->format('y/m/d'),
 //    date('y/m/d', time() + 86400 * sfConfig::get('app_active_days'))
 //);
 
 
 $browser->
-get('/job/new')->
-click('Preview your job', array('job' => array(
+get('/sfJobeetJob/new')->
+click('Preview your sfJobeetJob', array('sfJobeetJob' => array(
     'token' => 'fake_token',
 )))->
 
@@ -221,12 +221,12 @@ end();
 
 
 $browser->
-info('4 - User job history')->
+info('4 - User sfJobeetJob history')->
 
 loadData()->
 restart()->
 
-info('  4.1 - When the user access a job, it is added to its history')->
+info('  4.1 - When the user access a sfJobeetJob, it is added to its history')->
 get('/')->
 click('Web Developer', array(), array('position' => 1))->
 get('/')->
@@ -234,9 +234,20 @@ with('user')->begin()->
 isAttribute('job_history', array($browser->getMostRecentProgrammingJob()->getId()))->
 end()->
 
-info('  4.2 - A job is not added twice in the history')->
+info('  4.2 - A sfJobeetJob is not added twice in the history')->
 click('Web Developer', array(), array('position' => 1))->
 get('/')->
 with('user')->begin()->
 isAttribute('job_history', array($browser->getMostRecentProgrammingJob()->getId()))->
+end();
+
+
+//ajax
+$browser->setHttpHeader('X_REQUESTED_WITH', 'XMLHttpRequest');
+$browser->
+info('5 - Live search')->
+
+get('/search?query=sens*')->
+with('response')->begin()->
+checkElement('table tr', 2)->
 end();

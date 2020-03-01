@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="EN" target-language="en" datatype="plaintext" original="messages" date="2020-02-29T17:45:49Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit id="1">
+        <source>Acerca de Jobeet</source>
+        <target>About Jobeet</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Full feed</source>
+        <target>Feed</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Jobeet API</source>
+        <target>Jobeet API</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Conviertete en un afiliado</source>
+        <target>Become an affiliate</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>%count% mas...</source>
+        <target>and %count% more...</target>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>[0]Sin Trabajos en esta categoria|[1]1 Trabajo en esta categoria|(1,+Inf]%count% Trabajos en esta categoria</source>
+        <target>[0]No job in this category|[1]One job in this category|(1,+Inf]%count% jobs in this category</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

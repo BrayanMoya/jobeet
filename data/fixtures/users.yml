@@ -1,0 +1,8 @@
+SfGuardUser:
+  brayan:
+    first_name: Brayan
+    last_name: Moya
+    email_address: bmoya@tiqal.com
+    username: bmoya
+    password: betamaster1
+    is_super_admin: true

@@ -9,8 +9,9 @@
     </title>
 
     <link rel="icon" href="https://img.icons8.com/color/48/000000/symfony.png">
-    <?php include_javascripts() ?>
+    <?php use_javascript('jquery-1.9.1.min.js') ?>
     <?php include_stylesheets() ?>
+    <?php use_javascript('search.js') ?>
 
     <link rel="alternate" type="application/atom+xml" title="Latest Jobs"
           href="<?php echo url_for('job', array('sf_format' => 'atom'), true) ?>" />
@@ -34,10 +35,9 @@
 
                 <div class="search">
                     <h2>Pregunta por un Trabajo</h2>
-                    <form action="" method="get">
-                        <input type="text" name="keywords"
-                               id="search_keywords" />
-                        <input type="submit" value="Buscar" />
+                    <form action="<?php echo url_for('job_search') ?>" method="get">
+                        <input type="text" name="query" value="<?php echo $sf_request->getParameter('query') ?>" id="search_keywords" />
+                        <img id="loader" src="/legacy/images/loader.gif" style="vertical-align: middle; display: none" />
                         <div class="help">
                             Ingresa Algunas Palabras Clave (ciudad, pais, posicion, ...)
                         </div>
@@ -86,17 +86,22 @@
             </a>
           </span>
             <ul>
-                <li><a href="">Acerca de Jobeet</a></li>
+                <li><a href=""><?php echo __('Acerca de Jobeet')?></a></li>
                 <li class="feed">
-                    <a href="<?php echo url_for('job', array('sf_format' => 'atom')) ?>">Full feed</a>
+                    <?php echo link_to(__('Full feed'), 'job', array('sf_format' => 'atom')) ?>
                 </li>
-                <li><a href="">Jobeet API</a></li>
+                <li><a href=""><?php echo __('Jobeet API') ?></a></li>
                 <li class="last">
-                    <a href="<?php echo url_for('affiliate_new') ?>">Conviertete en Afiliado</a>
+                    <?php echo link_to(__('Conviertete en un afiliado'), 'affiliate_new') ?>
                 </li>
             </ul>
+
+            <?php include_component('sfJobeetLanguage', 'sfJobeetLanguage') ?>
+
         </div>
     </div>
 </div>
+
+<?php include_javascripts() ?>
 </body>
 </html>

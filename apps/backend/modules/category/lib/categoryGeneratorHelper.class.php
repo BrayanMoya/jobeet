@@ -1,10 +1,10 @@
 <?php
 
 /**
- * category module helper.
+ * sfJobeetCategory module helper.
  *
  * @package    jobeet
- * @subpackage category
+ * @subpackage sfJobeetCategory
  * @author     Your name here
  * @version    SVN: $Id$
  */

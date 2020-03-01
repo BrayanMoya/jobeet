@@ -1,9 +1,25 @@
 JobeetCategory:
   design:
-    name: Diseño
+    Translation:
+      en:
+        name: Design
+      fr:
+        name: Diseño
   programming:
-    name: Programacion
+    Translation:
+      en:
+        name: Programming
+      fr:
+        name: Programacion
   manager:
-    name: Gerencia
+    Translation:
+      en:
+        name: Manager
+      fr:
+        name: Gerencia
   administrator:
-    name: Administracion
+    Translation:
+      en:
+        name: Administrator
+      fr:
+        name: Administracion

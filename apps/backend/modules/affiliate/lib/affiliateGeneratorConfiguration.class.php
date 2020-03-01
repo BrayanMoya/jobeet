@@ -1,10 +1,10 @@
 <?php
 
 /**
- * affiliate module configuration.
+ * sfJobeetAffiliate module configuration.
  *
  * @package    jobeet
- * @subpackage affiliate
+ * @subpackage sfJobeetAffiliate
  * @author     Your name here
  * @version    SVN: $Id$
  */

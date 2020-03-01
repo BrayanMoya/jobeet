@@ -1,0 +1,86 @@
+<?php
+
+/**
+ * sfJobeetCategory actions.
+ *
+ * @package    jobeet
+ * @subpackage sfJobeetCategory
+ * @author     Your name here
+ * @version    SVN: $Id$
+ */
+class sfJobeetCategoryActions extends sfActions
+{
+  public function executeIndex(sfWebRequest $request)
+  {
+    $this->jobeet_categorys = Doctrine_Core::getTable('JobeetCategory')
+      ->createQuery('a')
+      ->execute();
+  }
+
+  public function executeShow(sfWebRequest $request)
+  {
+      $this->category = $this->getRoute()->getObject();
+
+      $this->pager = new sfDoctrinePager(
+          'JobeetJob',
+          sfConfig::get('app_max_jobs_on_category')
+      );
+      $this->pager->setQuery($this->category->getActiveJobsQuery());
+      $this->pager->setPage($request->getParameter('page', 1));
+      $this->pager->init();
+  }
+
+  public function executeNew(sfWebRequest $request)
+  {
+    $this->form = new JobeetCategoryForm();
+  }
+
+  public function executeCreate(sfWebRequest $request)
+  {
+    $this->forward404Unless($request->isMethod(sfRequest::POST));
+
+    $this->form = new JobeetCategoryForm();
+
+    $this->processForm($request, $this->form);
+
+    $this->setTemplate('new');
+  }
+
+  public function executeEdit(sfWebRequest $request)
+  {
+    $this->forward404Unless($jobeet_category = Doctrine_Core::getTable('JobeetCategory')->find(array($request->getParameter('id'))), sprintf('Object jobeet_category does not exist (%s).', $request->getParameter('id')));
+    $this->form = new JobeetCategoryForm($jobeet_category);
+  }
+
+  public function executeUpdate(sfWebRequest $request)
+  {
+    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
+    $this->forward404Unless($jobeet_category = Doctrine_Core::getTable('JobeetCategory')->find(array($request->getParameter('id'))), sprintf('Object jobeet_category does not exist (%s).', $request->getParameter('id')));
+    $this->form = new JobeetCategoryForm($jobeet_category);
+
+    $this->processForm($request, $this->form);
+
+    $this->setTemplate('edit');
+  }
+
+  public function executeDelete(sfWebRequest $request)
+  {
+    $request->checkCSRFProtection();
+
+    $this->forward404Unless($jobeet_category = Doctrine_Core::getTable('JobeetCategory')->find(array($request->getParameter('id'))), sprintf('Object jobeet_category does not exist (%s).', $request->getParameter('id')));
+    $jobeet_category->delete();
+
+    $this->redirect('sfJobeetCategory/index');
+  }
+
+  protected function processForm(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $jobeet_category = $form->save();
+
+      $this->redirect('sfJobeetCategory/edit?id='.$jobeet_category->getId());
+    }
+  }
+}

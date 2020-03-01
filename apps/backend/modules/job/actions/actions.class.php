@@ -4,10 +4,10 @@ require_once dirname(__FILE__) . '/../lib/jobGeneratorConfiguration.class.php';
 require_once dirname(__FILE__) . '/../lib/jobGeneratorHelper.class.php';
 
 /**
- * job actions.
+ * sfJobeetJob actions.
  *
  * @package    jobeet
- * @subpackage job
+ * @subpackage sfJobeetJob
  * @author     Your name here
  * @version    SVN: $Id$
  */

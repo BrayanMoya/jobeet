@@ -2,8 +2,8 @@ jobeet_affiliate:
   class: sfDoctrineRouteCollection
   options:
     model:                JobeetAffiliate
-    module:               affiliate
-    prefix_path:          /affiliate
+    module:               sfJobeetAffiliate
+    prefix_path:          /sfJobeetAffiliate
     column:               id
     with_wildcard_routes: true
 
@@ -11,8 +11,8 @@ jobeet_category:
   class: sfDoctrineRouteCollection
   options:
     model:                JobeetCategory
-    module:               category
-    prefix_path:          /category
+    module:               sfJobeetCategory
+    prefix_path:          /sfJobeetCategory
     column:               id
     with_wildcard_routes: true
 
@@ -20,8 +20,8 @@ jobeet_job:
   class: sfDoctrineRouteCollection
   options:
     model:                JobeetJob
-    module:               job
-    prefix_path:          /job
+    module:               sfJobeetJob
+    prefix_path:          /sfJobeetJob
     column:               id
     with_wildcard_routes: true
 
@@ -31,7 +31,7 @@ jobeet_job:
 # default rules
 homepage:
   url:   /
-  param: { module: job, action: index }
+  param: { module: sfJobeetJob, action: index }
 
 # generic rules
 # please, remove them by adding more specific rules
